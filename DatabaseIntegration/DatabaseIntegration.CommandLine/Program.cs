@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using DatabaseIntegration.Lib;
+using System.Data;
 
 namespace DatabaseIntegration.CommandLine
 {
@@ -20,6 +21,14 @@ namespace DatabaseIntegration.CommandLine
             {
                 Console.WriteLine(s);
             }
+
+            string qry = string.Format(MovieDatabase.N_STAR_MOVIES, 5);
+            DataSet ds = md.GetMeSomeData(qry);
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine($"{row["id"]}: {row["title"]}");
+            }
+
 
             Console.ReadKey();
         }

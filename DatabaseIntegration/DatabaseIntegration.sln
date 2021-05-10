@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseIntegration.Lib", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseIntegration.CommandLine", "DatabaseIntegration.CommandLine\DatabaseIntegration.CommandLine.csproj", "{2B483496-A8FF-449B-B136-F3D924507111}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseIntegration.UI", "DatabaseIntegration.UI\DatabaseIntegration.UI.csproj", "{59C11E88-BD4B-4B3E-83F1-DAB4C4018099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2B483496-A8FF-449B-B136-F3D924507111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B483496-A8FF-449B-B136-F3D924507111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B483496-A8FF-449B-B136-F3D924507111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C11E88-BD4B-4B3E-83F1-DAB4C4018099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C11E88-BD4B-4B3E-83F1-DAB4C4018099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C11E88-BD4B-4B3E-83F1-DAB4C4018099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C11E88-BD4B-4B3E-83F1-DAB4C4018099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

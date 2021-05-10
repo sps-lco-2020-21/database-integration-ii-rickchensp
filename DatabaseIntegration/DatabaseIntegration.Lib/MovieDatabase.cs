@@ -7,9 +7,12 @@ namespace DatabaseIntegration.Lib
     public class MovieDatabase
     {
         // interop error https://stackoverflow.com/a/41700451/2902
+        // goto to the directory: DatabaseIntegration.Lib\bin\Debug 
+        // copy the two sub-directories x86/ and x64/ (each should have two files in them: sqlite3.dll and SQLite.Interop.dll) 
+        // go into the bin/Debug directories for the CommandLine and the UI projects and copy these two sub-directories (replacing any of the same names that are already there)
 
         readonly string _connectionString;
-        public const string N_STAR_MOVIES = "select distinct title, director from movies m join ratings r on m.id = r.mid where r.rating = {0} ";
+        public const string N_STAR_MOVIES = "select distinct id, title, director from movies m join ratings r on m.id = r.mid where r.rating = {0} ";
 
         public MovieDatabase(string connectionString)
         {
@@ -45,7 +48,7 @@ namespace DatabaseIntegration.Lib
         {
             DataSet ds = null;
             // use 'using' the avoid explicitly closing the connection 
-            using (SQLiteConnection cxn = new SQLiteConnection(_connectionString))
+            using ( SQLiteConnection cxn = new SQLiteConnection(_connectionString))
             {
                 // create a command object based on a query and a connection 
                 SQLiteCommand cmd = new SQLiteCommand(qry, cxn);
