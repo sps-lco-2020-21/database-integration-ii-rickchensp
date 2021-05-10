@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseIntegration.Lib", "DatabaseIntegration.Lib\DatabaseIntegration.Lib.csproj", "{5D41E13C-C571-4259-A5B8-82995E9E8E6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseIntegration.CommandLine", "DatabaseIntegration.CommandLine\DatabaseIntegration.CommandLine.csproj", "{2B483496-A8FF-449B-B136-F3D924507111}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D41E13C-C571-4259-A5B8-82995E9E8E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D41E13C-C571-4259-A5B8-82995E9E8E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D41E13C-C571-4259-A5B8-82995E9E8E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D41E13C-C571-4259-A5B8-82995E9E8E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B483496-A8FF-449B-B136-F3D924507111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B483496-A8FF-449B-B136-F3D924507111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B483496-A8FF-449B-B136-F3D924507111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B483496-A8FF-449B-B136-F3D924507111}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {315551AC-2A15-468F-8BDC-8EE1A58E6AB4}
+	EndGlobalSection
+EndGlobal
