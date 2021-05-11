@@ -22,6 +22,7 @@ namespace DatabaseIntegration.CommandLine
                 Console.WriteLine(s);
             }
 
+            // the same results, but returned in a different way 
             string qry = string.Format(MovieDatabase.N_STAR_MOVIES, 5);
             DataSet ds = md.GetMeSomeData(qry);
             foreach(DataRow row in ds.Tables[0].Rows)

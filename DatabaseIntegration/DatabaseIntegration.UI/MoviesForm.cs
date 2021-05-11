@@ -38,7 +38,7 @@ namespace DatabaseIntegration.UI
                 // bind the dataset to the combobox 
                 cbNames.DataSource = ds.Tables[0];
                 cbNames.ValueMember = "id"; // these are the field names returned from the query. 
-                cbNames.DisplayMember = "title";
+                cbNames.DisplayMember = "title"; // if you want concatenations, do this in the query. 
 
                 lblSelectedItem.Text = "No-one selected yet";
             }
