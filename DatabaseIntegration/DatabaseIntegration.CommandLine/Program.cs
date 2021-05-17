@@ -17,7 +17,7 @@ namespace DatabaseIntegration.CommandLine
 
             MovieDatabase md = new MovieDatabase(cxnstring.ConnectionString);
 
-            foreach (string s in md.MoviesByRating(5))
+            /*foreach (string s in md.MoviesByRating(5))
             {
                 Console.WriteLine(s);
             }
@@ -28,10 +28,34 @@ namespace DatabaseIntegration.CommandLine
             foreach(DataRow row in ds.Tables[0].Rows)
             {
                 Console.WriteLine($"{row["id"]}: {row["title"]}");
+            }*/
+
+            foreach(DataRow row in md.GetEveryRating().Tables[0].Rows)
+            {
+                Console.WriteLine($"{row["rid"]}, {row["mid"]}, {row["rating"]}, { row["date"]}");
             }
 
+            Console.WriteLine("Please Enter some details to insert a new rating into the datebase:");
+            Console.Write("Your name: ");
+            string name = Console.ReadLine();
+            Console.Write("The title of the movie: ");
+            string title = Console.ReadLine();
+            Console.Write("Your rating: ");
+            string rating = Console.ReadLine();
+            Console.Write("The date: ");
+            string date = Console.ReadLine();
+
+            md.Insert(name, title, rating, date);
+
+            DataSet insertedDS = md.GetEveryRating();
+
+            foreach (DataRow row in insertedDS.Tables[0].Rows)
+            {
+                Console.WriteLine($"{row["rid"]}, {row["mid"]}, {row["rating"]}, { row["date"]}");
+            }
 
             Console.ReadKey();
         }
+
     }
 }

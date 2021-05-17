@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 
@@ -13,11 +14,55 @@ namespace DatabaseIntegration.Lib
 
         readonly string _connectionString;
         public const string N_STAR_MOVIES = "select distinct id, title, director from movies m join ratings r on m.id = r.mid where r.rating = {0} ";
-
+        public const string INSERT_MOVIE = "INSERT INTO Ratings (rid, mid, rating, date) VALUES ({0})";
+        public const string ALL_MOVIE_TITLES = "SELECT title FROM Movies";
         public MovieDatabase(string connectionString)
         {
             _connectionString = connectionString;
         }
+
+        public void Insert(string name, string title, string rating, string date)  
+        {
+
+            string values = $"{name},{title},{rating},{date}";
+            
+            string qry = string.Format(INSERT_MOVIE, values);
+
+            WriteData(qry);
+            
+        }
+
+        private void InsertValidation(string name, string title, string rating, string date)
+        {
+            //rating validation
+            bool isInt = int.TryParse(rating, out int ratingInt);
+            if (!isInt)
+                throw new Exception();
+            else if (ratingInt < 0 || ratingInt > 5)
+                throw new Exception();
+
+            //title validation
+            IEnumerable<string> movieTitles = GetMeAList(ALL_MOVIE_TITLES);
+            bool titleExists = false;
+            foreach(string movieTitle in movieTitles)
+            {
+                if(movieTitle == title)
+                    titleExists = true;
+            }
+            if (!titleExists)
+                throw new Exception();
+
+            //name validation
+
+        }
+
+        public DataSet GetEveryRating()
+        {
+            string qry = "SELECT * FROM Ratings";
+            return GetMeSomeData(qry);
+        }
+
+
 
         public IEnumerable<string> MoviesByRating(int r)
         {
@@ -25,7 +70,18 @@ namespace DatabaseIntegration.Lib
             return GetMeAList(qry);
         }
 
+        private void WriteData(string qry)
+        {
+            using (SQLiteConnection cxn = new SQLiteConnection(_connectionString))
+            {
+                cxn.Open();
+                SQLiteCommand cmd;
+                cmd = cxn.CreateCommand();
+                cmd.CommandText = qry;
 
+                cmd.ExecuteNonQuery();
+            }
+        }
         public IEnumerable<string> GetMeAList(string qry)
         {
             using (SQLiteConnection cxn = new SQLiteConnection(_connectionString))
